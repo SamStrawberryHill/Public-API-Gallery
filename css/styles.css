@@ -7,6 +7,10 @@
     margin: 0 auto;
     width: 90%;
 }
+#flickr {
+    margin: 0 auto;
+    width: 90%;
+}
 
 h3 {
   color: #ffd700;
@@ -43,6 +47,17 @@ hr {
     text-align: center;
     border-color: #ffd700;
     width: 90%
+}
+
+#flickrHeader {
+  font-size: 1.5em;
+  padding-top: 20px;
+  margin: 0 5% 0;
+  font-weight: lighter;
+  color: #ffd700;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
 
 /*Gallery Styles*/
@@ -95,6 +110,7 @@ li:hover {
 
 #card {
     width: 90%;
+    height: 5%;
     margin: 0 auto;
     z-index: 2;
     position: absolute;
@@ -110,6 +126,8 @@ li:hover {
     display: block;
     margin: 10px auto;
     border: solid 3px #ffd700;
+    height: 450px;
+    width: 306px;
 }
 
 #card img:hover {
@@ -124,6 +142,9 @@ li:hover {
   header.header {
     font-size: 30px;
   }
+  #flickrHeader {
+    font-size: 30px;
+  }
   #card {
     top: 20px;
   }
@@ -134,9 +155,14 @@ li:hover {
     font-size: 50px;
     margin: 0 5% 0;
   }
+  #flickrHeader {
+    font-size: 50px;
+    margin: 0 5% 0;
+  }
 
   #card {
       width: 80%;
+      height: 7%;
       left: 10%;
       top: 50px;
   }
@@ -148,9 +174,18 @@ li:hover {
 
 @media screen and (min-width: 1024px) {
 
+  #card {
+    height: 10%;
+  }
   #card img {
       display: block;
       margin: 10px auto;
       border: solid 3px #ffd700;
+  }
+
+}
+@media screen and (min-width: 1024px) {
+  #card {
+    height: 16%;
   }
 }

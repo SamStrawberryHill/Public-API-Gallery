@@ -32,7 +32,7 @@ function displayMovies(data) {
     $('#film').html(movieHTML);
     $("li:nth-child(2)").hide();//img link is broken, this hides it
 }
-//Put film on overlay
+//Put film photo on overlay
 function showFilm(item) {
   var displayPoster = item.children("img").attr("src");
   $('#overlay img').attr("src", displayPoster);
