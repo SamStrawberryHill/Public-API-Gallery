@@ -38,3 +38,19 @@ $("#flickr").on("click", "li", function(item) {
   var item_to_show = $(this);
   showPhoto(item_to_show);
 });
+
+//Sort by date button
+$('#dateSort').click(function() {
+  var flickrPhotos = $('#flickrGallery li');
+  flickrPhotos.sort(mySortFunction);
+  $('#flickrGallery').empty();
+  $('#flickrGallery').append(flickrPhotos);
+
+  function mySortFunction(a, b) { 
+    var text_a = $(a).children("p").eq(1).text();
+    var text_b = $(b).children("p").eq(1).text();
+      if (text_a < text_b) return -1;
+      if (text_a > text_b) return 1;
+      if (text_a == text_b) return 0;
+    }
+});

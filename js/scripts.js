@@ -15,6 +15,9 @@ $card.append($caption);
 // Append overlay to body
 $("body").prepend($overlay);
 
+// Add arrow images
+
+
 //AJAX Call - OMDB
 var omdbURL = "https://www.omdbapi.com/?s=harry+potter&r=json";
 $.getJSON(omdbURL, displayMovies);
@@ -58,6 +61,22 @@ function showFilm(item) {
 $("#film").on("click", "li", function (item) {
   var item_to_show = $(this);
   showFilm(item_to_show);
+});
+
+//Sort by year button
+$('#yearSort').click(function() {
+    var filmPhotos = $('#filmGallery li');
+    $('#filmGallery').empty();
+    filmPhotos.sort(mySortFunction);
+    $('#filmGallery').append(filmPhotos);
+    function mySortFunction(a, b) {
+         var text_a = $(a).children("p").last().text();
+         var text_b = $(b).children("p").last().text();
+
+        if (text_a < text_b) return -1;
+        if (text_a > text_b) return 1;
+        if (text_a == text_b) return 0;
+    }
 });
 
 //Exit overlay
