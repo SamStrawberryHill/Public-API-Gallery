@@ -1,22 +1,3 @@
-//OVERLAY
-var $overlay = $('<div id="overlay"></div>');
-var $card = $('<div id="card"></div>');
-var $image = $("<img>");
-var $caption = $("<span></span>");
-
-
-//Append card to overlay
-$overlay.append($card);
-
-//Append image to overlay
-$card.append($image);
-
-//Append caption to overlay
-$card.append($caption);
-
-// Append overlay to body
-$("body").prepend($overlay);
-
 //AJAX Call - OMDB
 var omdbURL = "https://www.omdbapi.com/?s=harry+potter&r=json";
 $.getJSON(omdbURL, displayMovies);
@@ -45,15 +26,15 @@ function showFilm(item) {
   var displayYear = item.children("p").last().text();
   var omdbURLById = "https://www.omdbapi.com/?i=" + displayID + "&r=json";
   var movie;
-  $.ajax(omdbURLById, { //plot info by ID
+  $.ajax(omdbURLById, {
     complete: function(newXHR){
       movie = $.parseJSON(newXHR.responseText);
       $('#overlay span').html("<p>" + "Title: " + displayTitle + "</p>" + "<p>" + "Year: " + displayYear + "</p>" + "<p>" + "Plot: " + movie.Plot + "</p>");
-  }
-});
+    }
+  });
 
 //Fade in the overlay
-  $overlay.fadeIn(500);
+  $('#overlay').fadeIn(500);
 }
 
 // When Click on Movie Image, open overlay with data for that movie clicked
@@ -70,7 +51,6 @@ $('#yearSort').click(function() {
     function mySortFunction(a, b) {
          var text_a = $(a).children("p").last().text();
          var text_b = $(b).children("p").last().text();
-
         if (text_a < text_b) return -1;
         if (text_a > text_b) return 1;
         if (text_a == text_b) return 0;
@@ -78,6 +58,6 @@ $('#yearSort').click(function() {
 });
 
 //Exit overlay
-$overlay.click(function() {
+$('#overlay').click(function() {
   $(this).fadeOut(500);
 });
