@@ -3,6 +3,8 @@ var $overlay = $('<div id="overlay"></div>');
 var $card = $('<div id="card"></div>');
 var $image = $("<img>");
 var $caption = $("<span></span>");
+
+
 //Append card to overlay
 $overlay.append($card);
 
@@ -14,9 +16,6 @@ $card.append($caption);
 
 // Append overlay to body
 $("body").prepend($overlay);
-
-// Add arrow images
-
 
 //AJAX Call - OMDB
 var omdbURL = "https://www.omdbapi.com/?s=harry+potter&r=json";
@@ -62,7 +61,6 @@ $("#film").on("click", "li", function (item) {
   var item_to_show = $(this);
   showFilm(item_to_show);
 });
-
 //Sort by year button
 $('#yearSort').click(function() {
     var filmPhotos = $('#filmGallery li');
