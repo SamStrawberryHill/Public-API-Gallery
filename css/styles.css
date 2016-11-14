@@ -97,7 +97,7 @@ ul {
     flex-wrap: wrap;
 }
 
-ul li img {
+ul li img:nth-child(2) {
     display: block;
     height: 400px;
     width: 100%;
@@ -148,7 +148,7 @@ li:hover {
     border-radius: 5px;
 }
 
-#card img {
+#card img:nth-child(2) {
     display: block;
     margin: 10px auto;
     border: solid 3px #ffd700;
@@ -161,6 +161,28 @@ li:hover {
     filter: invert(100%);
 }
 /* Arrows */
+img.previous{
+    z-index: 3;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    border-style: hidden;
+    float: left;
+}
+
+
+img.next{
+    z-index: 3;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    border-style: hidden;
+    float: right;
+}
 
 /*Media Queries*/
 
@@ -221,7 +243,7 @@ li:hover {
   #card {
     height: 10%;
   }
-  #card img {
+  #card img:nth-child(2) {
     display: block;
     margin: 10px auto;
     border: solid 3px #ffd700;
@@ -231,6 +253,6 @@ li:hover {
 @media screen and (min-width: 1024px) {
 
   #card {
-    height: 16%;
+    height: 20%;
   }
 }

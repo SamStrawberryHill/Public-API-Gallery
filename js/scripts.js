@@ -20,7 +20,7 @@ function displayMovies(data) {
 //Put film photo on overlay
 function showFilm(item) {
   var displayPoster = item.children("img").attr("src");
-  $('#overlay img').attr("src", displayPoster);
+  $('#overlay img:nth-child(2)').attr("src", displayPoster);
 
   //Use movie ID to look up plot
   var displayID = item.children("p").first().text();
@@ -43,6 +43,8 @@ $("#film").on("click", "li", function (item) {
   var item_to_show = $(this);
   showFilm(item_to_show);
 });
+
+// Arrow Functionality
 
 //Sort by year button
 $('#yearSort').click(function() {

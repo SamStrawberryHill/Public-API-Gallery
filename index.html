@@ -10,7 +10,18 @@
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="overlay"><div id="card"><img><span></span></div></div>
+    <div id="overlay">
+      <div id="card">
+          <div id="previous">
+            <img class="previous" src="img/chevron_left1600.png" alt="previous arrow">
+          </div>
+          <img id="slideShow">
+          <div id="next">
+            <img class="next" src="img/chevron_right1600.png" alt="next arrow">
+          </div>
+        <span></span>
+      </div>
+    </div>
     <header class="header">Harry Potter Films and Games
       <button type="submit" class="sortButton" id="yearSort">Sort By Year</button>
     </header>
@@ -18,11 +29,6 @@
     <div id="wrapper">
       <div id="film">
       </div>
-      <div class = "arrows">
-        <div class = "previous">
-        </div>
-        <div class = "next">
-        </div>
       </div>
     </div>
     <header id="flickrHeader">Flickr User's Harry Potter Photos

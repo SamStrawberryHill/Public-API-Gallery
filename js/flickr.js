@@ -4,6 +4,8 @@ var flickrOpts = {
     tags: "harrypotter",
     format: "json"
 };
+$.getJSON(flickrURL, flickrOpts, displayPhotos);
+
 //Get photo info
 function displayPhotos(data) {
   var photoHTML = '<ul id="flickrGallery">';
@@ -14,29 +16,21 @@ function displayPhotos(data) {
     photoHTML += '<p class="hidden">' + photo.date_taken + '</p>';
     photoHTML += '<p class="hidden">' + photo.author + '</p></li>';
     });
-    photoHTML += '</ul>';
-    $('#flickr').html(photoHTML);
-}
-
-$.getJSON(flickrURL, flickrOpts, displayPhotos);
-//Overlay
-function showPhoto(item) {
-var item = $(item);
-currentSlideshowEl = item.parent('ul');
-var displayPhoto = item.children("img").attr("src");
-$('#overlay img').attr("src", displayPhoto);
-var displayTitle = item.children("p").eq(0).text();
-var displayDate = item.children("p").eq(1).text();
-var displayAuthor = item.children("p").eq(2).text();
-$('#overlay span').html("<p>" + "Title: " + displayTitle + "</p>" + "<p>" + "Date: " + displayDate + "</p/>" + "<p>" + "Author: " + displayAuthor + "</p/>");
-
-//Fade in the overlay
-$overlay.fadeIn(500);
+  photoHTML += '</ul>';
+  $('#flickr').html(photoHTML);
 }
 // Photo info
 $("#flickr").on("click", "li", function(item) {
-  var item_to_show = $(this);
-  showPhoto(item_to_show);
+  var item = $(this);
+  var displayPhoto = item.children("img").attr("src");
+  $('#overlay img:nth-child(2)').attr("src", displayPhoto);
+  var displayTitle = item.children("p").eq(0).text();
+  var displayDate = item.children("p").eq(1).text();
+  var displayAuthor = item.children("p").eq(2).text();
+  $('#overlay span').html("<p>" + "Title: " + displayTitle + "</p>" + "<p>" + "Date: " + displayDate + "</p/>" + "<p>" + "Author: " + displayAuthor + "</p/>");
+
+  //Fade in the overlay
+  $('#overlay').fadeIn(500);
 });
 
 //Sort by date button
@@ -46,7 +40,7 @@ $('#dateSort').click(function() {
   $('#flickrGallery').empty();
   $('#flickrGallery').append(flickrPhotos);
 
-  function mySortFunction(a, b) { 
+  function mySortFunction(a, b) {
     var text_a = $(a).children("p").eq(1).text();
     var text_b = $(b).children("p").eq(1).text();
       if (text_a < text_b) return -1;
