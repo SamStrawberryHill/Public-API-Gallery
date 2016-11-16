@@ -1,9 +1,9 @@
 //AJAX Call - OMDB
 var omdbURL = "https://www.omdbapi.com/?s=harry+potter&r=json";
-$.getJSON(omdbURL, displayMovies);
+$.getJSON(omdbURL, displayFilms);
 
 //Get info for film
-function displayMovies(data) {
+function displayFilms(data) {
   var movieHTML = '<ul id="filmGallery">';
   $.each(data.Search, function (i, movie) {
     movieHTML += '<li>';
@@ -20,7 +20,7 @@ function displayMovies(data) {
 //Put film photo on overlay
 function showFilm(item) {
   var displayPoster = item.children("img").attr("src");
-  $('#overlay img:nth-child(2)').attr("src", displayPoster);
+  $('#slideShow').attr("src", displayPoster);
 
   //Use movie ID to look up plot
   var displayID = item.children("p").first().text();
@@ -45,6 +45,36 @@ $("#film").on("click", "li", function (item) {
 });
 
 // Arrow Functionality
+var $index = 0;
+var currentSlideshow = null;
+function slideShowUpdate(move) {
+  var $galleryLength = $(this).find("#slideShow").length;
+    $index += move;
+    if ($index < 0) {
+      $index = $galleryLength - 1;
+  }
+  if ($index >= $galleryLength) {
+      $index = 0;
+  }
+  var item_to_show = $(this).find("li").eq($index);
+  var func = showFilm;
+  if ($(this).attr('id') == 'flickrGallery') {
+      func = displayPhotos;
+  }
+  func(item_to_show);
+}
+
+  //Previous Arrow
+$('#previous').click(function(event) {
+  slideShowUpdate(-1);
+  return false;
+});
+
+  //Next Arrow
+$('#next').click(function(event) {
+  slideShowUpdate(1);
+  return false;
+});
 
 //Sort by year button
 $('#yearSort').click(function() {
