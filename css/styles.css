@@ -97,11 +97,9 @@ ul {
     flex-wrap: wrap;
 }
 
-ul li img:nth-child(2) {
-    display: block;
-    height: 400px;
-    width: 100%;
-    border: solid 3px #ffd700;
+ul img {
+    align-items: center;
+    border: solid 2.98px #ffd700;
 }
 
 li {
@@ -136,7 +134,7 @@ li:hover {
 
 #card {
     width: 90%;
-    height: 5%;
+    height: 6.5%;
     margin: 0 auto;
     z-index: 2;
     position: absolute;
@@ -148,7 +146,7 @@ li:hover {
     border-radius: 5px;
 }
 
-#card img:nth-child(2) {
+#card img{
     display: block;
     margin: 10px auto;
     border: solid 3px #ffd700;
@@ -159,29 +157,6 @@ li:hover {
 #card img:hover {
     transition: filter .5s ease-out;
     filter: invert(100%);
-}
-/* Arrows */
-img.previous{
-    z-index: 3;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    border-style: hidden;
-    float: left;
-}
-
-
-img.next{
-    z-index: 3;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    border-style: hidden;
-    float: right;
 }
 
 /*Media Queries*/
@@ -213,7 +188,7 @@ img.next{
 
   #card {
     width: 80%;
-    height: 7%;
+    height: 12%;
     left: 10%;
     top: 50px;
   }
@@ -235,24 +210,17 @@ img.next{
   #yearSort:hover {
     background-color: #660198;
     color: #ffd700;
-}
+  }
 }
 
 @media screen and (min-width: 1024px) {
 
   #card {
-    height: 10%;
+    height: 19%;
   }
-  #card img:nth-child(2) {
+  #card img{
     display: block;
     margin: 10px auto;
     border: solid 3px #ffd700;
-  }
-
-}
-@media screen and (min-width: 1024px) {
-
-  #card {
-    height: 20%;
   }
 }

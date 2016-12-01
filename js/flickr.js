@@ -23,7 +23,7 @@ function displayPhotos(data) {
 $("#flickr").on("click", "li", function(item) {
   var item = $(this);
   var displayPhoto = item.children("img").attr("src");
-  $('#overlay img:nth-child(2)').attr("src", displayPhoto);
+  $('#overlay img').attr("src", displayPhoto);
   var displayTitle = item.children("p").eq(0).text();
   var displayDate = item.children("p").eq(1).text();
   var displayAuthor = item.children("p").eq(2).text();
